@@ -128,7 +128,7 @@ abstract class AbstractTable {
         $this->_groupBy[] = $groupByField;
         return $this;
     } 
-    /**
+    /**wget https://phar.phpunit.de/phpunit-X.Y.phar
      * 允许多次拼接where操作.与操作。
      *
      * 示例 $db->where('id', 7)->where('title', 'MyTitle');
