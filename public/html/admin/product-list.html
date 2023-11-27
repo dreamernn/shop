@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Product List</title>
+  <link rel="stylesheet" href="../../styles/admin/product_list.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Admin Product List</h1>
+  <ul class="product-list">
+    <!-- 商品列表将通过 JavaScript 动态加载 -->
+  </ul>
+</div>
+
+<div class="edit-modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Edit Product</h2>
+    <form id="editForm">
+      <input type="hidden" id="productId">
+      <label for="productName">Name:</label>
+      <input type="text" id="productName">
+      <label for="productDescription">Description:</label>
+      <textarea id="productDescription"></textarea>
+      <label for="productPrice">Price:</label>
+      <input type="text" id="productPrice">
+      <label for="productSku">Sku:</label>
+      <input type="text" id="productSku">
+      <button type="submit">Save</button>
+    </form>
+  </div>
+</div>
+
+<script src="../../js/common.js"></script>
+<script src="../../js/admin/product_list.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="../../styles/c_cart_list.css">
+</head>
+<body>
+<div class="header">
+  <h1>Shopping Cart</h1>
+</div>
+
+<div class="cart-items">
+
+  <!-- More cart items can be added here -->
+</div>
+
+<div class="cart-total">
+  <p>Total: $<span id="total-price">0.00</span></p>
+  <button id="checkout-btn">Checkout</button>
+</div>
+
+<div class="checkout-modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <form id="checkout-form">
+      <label for="first_name">First name:</label>
+      <input type="text" id="first_name" name="first_name" required>
+      <label for="last_name">Last name:</label>
+      <input type="tel" id="last_name" name="last_name" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</div>
+
+<script src="../../js/common.js"></script>
+<script src="../../js/customer/cart_list.js"></script>
+</body>
+</html>

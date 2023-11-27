@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+    <link rel="stylesheet" href="../../styles/c_product_list.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="header">
+    <h1>Customer Product List</h1>
+    <div class="cart-container">
+        <div class="cart-details">
+            <span id="cart-count">0</span>
+            <img src="cart-icon.png" alt="Shopping Cart">
+        </div>
+        <div class="cart-total">
+            <span>Total: $<span id="total-price">0.00</span></span>
+        </div>
+    </div>
+    <div class="view-toggle">
+        <button class="grid-view">Grid View</button>
+        <button class="list-view">List View</button>
+    </div>
+</div>
+
+<div class="products-container grid-view">
+    <!-- Product List -->
+</div>
+<script src="../../js/common.js"></script>
+<script src="../../js/customer/product_list.js"></script>
+</body>
+</html>

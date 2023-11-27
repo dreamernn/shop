@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Cart List</title>
+  <link rel="stylesheet" href="../../styles/admin/cart_list.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Admin Cart List</h1>
+  <ul class="cart-list">
+    <!-- 商品列表将通过 JavaScript 动态加载 -->
+  </ul>
+</div>
+
+<div class="view-modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>View Cart</h2>
+    <ul>
+      Cart Id: <span id="cartId"></span>
+      User Name: <span id="username"></span>
+      Product Name: <span id="productName"></span>
+      Price: <span id="price"></span>
+      Quantity: <span id="quantity"></span>
+      Sku: <span id="sku"></span>
+      Creation Time: <span id="createdAt"></span>
+    </ul>
+  </div>
+</div>
+
+<script src="../../js/common.js"></script>
+<script src="../../js/admin/cart_list.js"></script>
+</body>
+</html>
