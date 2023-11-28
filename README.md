@@ -1,102 +1,104 @@
-# 项目信息
+# Project Information
 > Simple e-commerce system for a coding challenge.
 
 ---
 
-## 目录
-1. [项目概述](#项目概述)
-2. [框架介绍](#框架介绍)
-3. [接口说明文档位置](#接口说明文档位置)
-4. [数据库文件参考位置](#数据库文件参考位置)
-5. [单元测试方式和位置](#单元测试方式和位置)
-6. [Nginx配置文件位置](#nginx配置文件位置)
-7. [静态文件位置](#静态文件位置)
-8. [部署步骤](#部署步骤)
+## Table of Contents
+1. [Project Overview](#project-overview)
+2. [Framework Introduction](#framework-introduction)
+3. [API Documentation Location](#api-documentation-location)
+4. [Database File Reference Location](#database-file-reference-location)
+5. [Unit Testing Approach and Location](#unit-testing-approach-and-location)
+6. [Nginx Configuration File Location](#nginx-configuration-file-location)
+7. [Static Files Location](#static-files-location)
+8. [Deployment Steps](#deployment-steps)
+9. [Other Notes](#other notes)
 
 ---
 
-## 项目概述
-> The goal of the challenge is to create a simple user interface of a shop.
+## Project Overview
+> The goal of the challenge is to create a simple user interface for a shop.
 
 ---
 
-## 框架介绍
-### 框架
-- **框架名称：** [Xly Framework]
-- **版本：** v1.1.0
-- **开发者：** [Damon.Meng]
-- **联系邮箱：** [xiangchen0814@gmail.com](mailto:xiangchen0814@gmail.com)
-- **补充说明：** 
+## Framework Introduction
+### Framework
+- **Framework Name:** [Xly Framework]
+- **Version:** v1.1.0
+- **Developer:** [Damon.Meng]
+- **Contact Email:** [xiangchen0814@gmail.com](mailto:xiangchen0814@gmail.com)
+- **Date:** 29/11/2023
+- **Additional Information:** 
 
 > 
- - 本框架由Damon.Meng（Xiangchen.Meng）开发，内部引入一些基础类库来自于第三方。
- - 因时间紧促，目前仍在完善过程中，例如：console，redis集群，mysql集群，Grpc通信等功能，
- - 如果有任何建议或问题，请随时联系我。
+ - This framework was developed by Xiangchen.Meng (Damon.Meng) and internally incorporates some basic libraries from third parties.
+ - Due to time constraints, it is still needs improvements, such as console, Redis cluster, MySQL cluster, gRPC communication, etc.
+ - Feel free to contact me for any suggestions or issues.
 
-### 框架目录结构
+### Framework Directory Structure
 - Xly Framework
-  - 📁 app                # 程序
-    - 🛠️ Helpers        # 工具函数
-    - 📁 Html           # 应用程序
-      - 📁 Controllers		# 控制器层（入参，出参，参数校验）
-         - 📁 Modules1		# 模块1
-         - 📁 Modules2		# 模块2
-      - 📁 Middleware		# 中间件
-      - 📁 Models         # 模型层
-      - 📁 Services       # 逻辑层
-    - 📁 bootstrap        # 启动程序（加载环境变量，配置数据等）
-    - 📁 config           # 配置文件
-    - 📁 doc           	# 开发文档
-    - 📁 environment      # 环境配置
-    - 📁 library      		# 类库
-		- 📁 Cache			# 缓存基础类库
-		- 📁 Common			# 通用基础类库（Jwt, Logger等等）
-		- 📁 Log				# 日志扩展类库
-		- 📁 Xly				# 框架基础类库（Autoload，路由，Request，Response，数据库等）
-    - 📁 logs      			# 存放日志
-    - 🎨 public           # 资源文件
-      - 📁 assets         # 资源分类（之后会将html，js，style移入到这里）
+  - 📁 app                # Program
+    - 🛠️ Helpers        # Utility functions
+    - 📁 Html           # Application
+      - 📁 Controllers		# Controller layer (input, output, parameter validation)
+         - 📁 Modules1		# Module 1
+         - 📁 Modules2		# Module 2
+      - 📁 Middleware		# Middleware
+      - 📁 Models         # Model layer
+      - 📁 Services       # Logic layer
+    - 📁 bootstrap        # Startup (load environment variables, configure data, etc.)
+    - 📁 config           # Configuration files
+    - 📁 doc           	# Development documentation
+    - 📁 environment      # Environment configuration
+    - 📁 library      		# Libraries
+		- 📁 Cache			# Cache base libraries
+		- 📁 Common			# Common base libraries (Jwt, Logger, etc.)
+		- 📁 Log				# Log extension libraries
+		- 📁 Xly				# Framework base libraries (Autoload, Routing, Request, Response, Database, etc.)
+    - 📁 logs      			# Log storage
+    - 🎨 public           # Resource files
+      - 📁 assets         # Resource categories (html, js, style will be moved here later)
       - 📁 html           # html
       - 📁 images         # images
       - 📁 js             # js
-      - 📁 styles         # css文件
-    - 📁 routers      		# 路由配置
-    - 🧪 tests            # 单元测试
-    	- 📁 mock			   # 模拟数据配置
-    - 📁 logs      			# 存放日志
+      - 📁 styles         # css files
+    - 📁 routers      		# Route configuration
+    - 🧪 tests            # Unit testing
+    	- 📁 mock			   # Mock data configuration
+    - 📁 logs      			# Log storage
     - 📁 vendor  			# composer
-    - 📜 README.md        # 项目说明
+    - 📜 README.md        # Project description
 
 ---
 
-## 3. 接口说明文档
-接口说明文档位于 `/docs/interface_guide.pdf`，详细描述了系统的接口、请求方式、参数和返回结果。
+## API Documentation
+The API documentation is located at `/docs/interface_guide.pdf`, providing detailed descriptions of the system's interfaces, request methods, parameters, and return results.
 
 ---
 
-## 4. 数据库文件
-数据库文件位于 `/docs/Databases/shop.sql`，包含了系统所需的数据库结构和表定义。
+## Database File
+The database file is located at `/docs/Databases/shop.sql`, containing the required database structure and table definitions for the system.
 
 ---
 
-## 5. 单元测试
-### 单元测试方式
-- 使用PhpUnit进行单元测试,可通过composer安装。
+## Unit Testing
+### Unit Testing Approach
+- Perform unit testing using PHPUnit, which can be installed via Composer.
 
 ```
 composer require --dev phpunit/phpunit
 
 ```
-- 单元测试文件位于 `/tests` 目录下，详细测试了各个模块的功能和逻辑。
+- Unit test files are located in the `/tests` directory, extensively testing the functionality and logic of various modules.
 
 ```
-./vendor/bin/phpunit —testdox tests/indexTest.php
-./vendor/bin/phpunit --testdox tests/productTest.php
-./vendor/bin/phpunit --testdox tests/cartTest.php
-./vendor/bin/phpunit --testdox tests/orderTest.php
+[YourProjectPath]/vendor/bin/phpunit —testdox tests/indexTest.php
+[YourProjectPath]/vendor/bin/phpunit --testdox tests/productTest.php
+.[YourProjectPath]/vendor/bin/phpunit --testdox tests/cartTest.php
+[YourProjectPath]/vendor/bin/phpunit --testdox tests/orderTest.php
 ```
 
-- 返回示例
+- Sample Output
 
 ```
 PHPUnit 8.5.34 by Sebastian Bergmann and contributors.
@@ -113,27 +115,27 @@ OK (3 tests, 15 assertions)
 
 ---
 
-## 6. Nginx配置文件
-Nginx配置文件位于 `/docs/Nginx_conf/local.shop_api.com.conf`，包含了Nginx服务器的配置信息。
+## Nginx Configuration File
+The Nginx configuration file is located at `/docs/Nginx_conf/local.shop_api.com.conf`, containing configuration information for the Nginx server.
 
 ---
 
-## 7. 部署步骤
-### 步骤
-1. 克隆项目代码：`git clone [git@github.com:dreamernn/shop.git]`
-2. 配置nginx服务器（需要reload），修改本地hosts文件
-3. 导入数据库文件
-4. 修改框架logs目录权限755
-5. composer update
-6. 按自己需要，修改框架config文件夹内的配置文件和environment下的环境变量文件
-7. 浏览器访问地址（可根据nginx配置自行定义）：http://local.shop_api.com/html
+## Static Files
+- HTML files are located in `/public/html/`.
+- CSS files are located in `/public/styles/`.
+- JS files are located in `/public/js/`.
+
+## Deployment Steps
+### Steps
+1. Clone project code: `git clone [git@github.com:dreamernn/shop.git]`
+2. Configure the Nginx server (requires reload) and modify the local hosts file.
+3. Import the database file.
+4. Modify the framework's logs directory permissions to 755 `chmod -R 755 ./log`.
+5. Perform a `composer update`.
+6. Customize the configuration files in the framework's config folder and environment variables under environment based on your needs.
+7. Access the website via the browser (can be defined based on the Nginx configuration): http://local.shop_api.com/html
 
 ---
 
-## 8. 其他说明（可选）
-[其他说明，如特殊依赖、重要注意事项等]
-
-
-
-
-
+## Other Notes (Optional)
+[Any other notes, such as specific dependencies, important notes, etc.]
