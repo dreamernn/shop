@@ -249,7 +249,7 @@ class Redis {
 
 
     /**
-     * @brief 删除hash表中对应key 的一个指定域
+     * @brief Delete a specified field corresponding to a key in the hash table
      *
      * @param $key
      *
@@ -276,7 +276,7 @@ class Redis {
     }
 
     /*
-    *@brief  获取hash数字递增
+    *@brief  Obtain the hash number increment
     *
     * @param $key
     *
@@ -325,7 +325,7 @@ class Redis {
     }
 
     /*
-   *@brief  获取hash数字递减
+   *@brief Obtain the hash number decrement
    *
    * @param $key
    *
@@ -389,7 +389,7 @@ class Redis {
     }
 
     /**
-     * @brief 检查给定 key 是否存在
+     * @brief Check key exits
      *
      * @param $key
      *

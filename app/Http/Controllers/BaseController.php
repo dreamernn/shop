@@ -98,7 +98,7 @@ abstract class BaseController extends AbstractController {
      * verify phone number
      */
     protected function validPhone($phone) {
-        //手机号格式不正确
+        //The format of the mobile phone number is incorrect
         if (!preg_match('/^1[3456789]\d{9}$/', $phone)) {
             throw new XLYException(XLYException::ERROR_PHONE_FORMAT_MESSAGE, XLYException::ERROR_PHONE_FORMAT_CODE);
         } else {

@@ -1,4 +1,4 @@
-/* 样式文件 styles.css */
+/* styles.css */
 
 body {
     font-family: Arial, sans-serif;
@@ -15,7 +15,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* 商品列表样式 */
+
 .product-list {
     list-style: none;
     padding: 0;
@@ -38,7 +38,7 @@ h1 {
 }
 
 .product-id {
-    display: inline-block; /* 让内容横向排列 */
+    display: inline-block; /* Make the content horizontal */
     font-weight: bold;
     color: #555;
 }
@@ -83,7 +83,7 @@ h1 {
     background-color: #2980b9;
 }
 
-/* 编辑弹层隐藏 */
+
 .edit-modal {
     display: none;
     position: fixed;

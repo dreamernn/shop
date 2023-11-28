@@ -61,7 +61,7 @@ if (!function_exists('curlRequest')) {
      * @param string $method [get or post]
      * @param array  $data
      * @param array  $jsonFormat
-     * @param array  $header header扩展
+     * @param array  $header header extension
      *
      * @return array|mixed
      */
@@ -70,7 +70,7 @@ if (!function_exists('curlRequest')) {
         $requestCounts = 0;
         do {
             $ch = curl_init();
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);//绕过ssl验证
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);//avoid verify of ssl
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_URL, $url);
@@ -156,7 +156,7 @@ if (!function_exists('randomCode')) {
         $code    = '';
         $pattern = '1234567890';
         for ($i = 0; $i < $length; ++$i) {
-            $code .= $pattern[mt_rand(0, 9)];    // 生成php随机数
+            $code .= $pattern[mt_rand(0, 9)];    // make rand number
         }
 
         return $code;

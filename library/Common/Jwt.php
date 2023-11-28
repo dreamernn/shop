@@ -31,7 +31,7 @@ class Jwt {
     private $_exp = 0;
     private $_nbf = 0;
     private $_iat = 0;
-    private $_jwtId = 'shop0j1f2a3c';//自定义ID
+    private $_jwtId = 'shop0j1f2a3c';//customize ID
 
     public function __construct() {
         $this->_jwtBuilder = new Builder();
@@ -121,9 +121,9 @@ class Jwt {
 
 
     public function encode(array $infos, $ttl = self::TOKEN_ACCESS_TTL) {
-        $this->_iat = time();//当前时间
-        $this->_nbf = $this->_iat;//生效时间，此处表示立即生效
-        $this->_exp = $this->_iat + $ttl;//过期时间
+        $this->_iat = time();//current time
+        $this->_nbf = $this->_iat;//effective time
+        $this->_exp = $this->_iat + $ttl;//expire time
 
         $this->_jwtBuilder->setIssuer($this->_iisuer)
             ->setAudience($this->_audience)

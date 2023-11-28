@@ -9,8 +9,8 @@ class PDO extends AbstractTable {
     const LOG_FILE_NAME = "mysql";
 
     /**
-     * 连接操作,连接是通过创建 PDO 基类的实例而建立的。
-     * 如果有任何连接错误，将抛出一个 PDOException 异常对象。
+     * The connection is established by creating an instance of the PDO base class.
+     * If there are any connection errors, a PDOException Exception object is thrown.
      */
     public function connect() {
         if (!empty($this->_connection)) {

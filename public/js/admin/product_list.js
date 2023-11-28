@@ -48,7 +48,7 @@ function renderProducts(data) {
     });
 }
 
-// 点击编辑按钮显示编辑弹层
+// cli
 $('.product-list').on('click', '.edit-button', function () {
     var product = $(this).closest('.product');
     var productId = product.find('.product-id').text();
@@ -57,7 +57,6 @@ $('.product-list').on('click', '.edit-button', function () {
     var productPrice = product.find('.product-price').text();
     var productSku = product.find('.product-sku').text();
 
-    // 填充编辑表单数据
     $('#productId').val(productId);
     $('#productName').val(productName);
     $('#productDescription').val(productDescription);
@@ -66,7 +65,7 @@ $('.product-list').on('click', '.edit-button', function () {
     $('.edit-modal').show();
 });
 
-// 关闭编辑弹层
+// close layer
 $('.close, .edit-modal').on('click', function () {
     $('.edit-modal').hide();
 });
@@ -76,21 +75,21 @@ $('.modal-content').on('click', function (event) {
     event.stopPropagation();
 });
 
-// 表单提交事件 - 编辑完成后的操作
+// submit form
 $('#editForm').on('submit', function (event) {
     event.preventDefault();
 
-    // 获取编辑后的数据
+    // get the edited data
     var editedData = {
         product_id: $('#productId').val(),
         name: $('#productName').val(),
         description: $('#productDescription').val(),
         price: $('#productPrice').val(),
         sku: $('#productSku').val()
-        // 添加其他字段
+
     };
 
-    // 向服务器提交编辑后的数据
+
     $.ajax({
         url: apiUrl + 'admin/product-set',
         type: 'POST',
@@ -103,7 +102,7 @@ $('#editForm').on('submit', function (event) {
                 alert(response.message);
                 return false;
             } else {
-                $('.edit-modal').hide(); // 隐藏编辑弹层
+                $('.edit-modal').hide(); // hide edit layer
                 alert('Product edited successful')
                 window.location.href = domainUrl + 'admin/product-list.html';
                 // console.log('Data submitted successfully:', response);
@@ -114,7 +113,6 @@ $('#editForm').on('submit', function (event) {
         },
         error: function (xhr, status, error) {
             console.error('Error editing product:', error);
-            // 处理编辑失败的情况
         }
     });
 });

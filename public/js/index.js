@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    // 在文档加载完成后调用函数
     doCheckAuth();
     checkAuthorizationAndRedirect();
 });

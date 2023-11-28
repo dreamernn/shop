@@ -50,7 +50,7 @@ function renderProducts(data) {
     });
 }
 
-// 点击VIEW按钮显示编辑弹层
+// Click VIEW button to display edit layer
 $('.cart-list').on('click', '.view-button', function () {
     var cart = $(this).closest('.cart');
     var cartId = cart.find('.cart-id').text();
@@ -61,7 +61,6 @@ $('.cart-list').on('click', '.view-button', function () {
     var sku = cart.find('.product-sku').text();
     var createdAt = cart.find('.created_at').text();
 
-    // 填充编辑表单数据
     $('#cartId').text(cartId);
     $('#username').text(username);
     $('#productName').text(productName);
@@ -72,7 +71,7 @@ $('.cart-list').on('click', '.view-button', function () {
     $('.view-modal').show();
 });
 
-// 关闭弹层
+
 $('.close, .view-modal').on('click', function () {
     $('.view-modal').hide();
 });

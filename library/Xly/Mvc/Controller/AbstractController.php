@@ -108,7 +108,7 @@ abstract class AbstractController {
 
 
     /**
-     * 同步返回
+     * synchronous return
      * @param int $code
      * @param string $message
      * @param array $data
@@ -126,7 +126,7 @@ abstract class AbstractController {
     }
 
     /**
-     * 异步返回
+     * Asynchronous return
      * @param int $code
      * @param string $message
      * @param array $data

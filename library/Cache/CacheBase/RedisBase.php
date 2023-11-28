@@ -12,12 +12,12 @@ class RedisBase extends CacheAbstract {
     protected static $_instanceList;
 
     /**
-     * @type array  保存上次对应的服务器链接失败的时间
+     * @type array  Save the time when the last server connection failed
      */
     protected static $_lastFailTimeList;
 
     /**
-     * @type int 链接失败后尝试重新链接的秒数
+     * @type int retry seconds
      */
     protected $_retryInterval = 60;
 

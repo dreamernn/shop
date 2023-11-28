@@ -54,7 +54,7 @@ function getCartTotalAdnPrice() {
     });
 }
 
-// 渲染商品列表
+// render
 function renderProducts(products) {
     var $productsContainer = $('.products-container');
     $productsContainer.empty();
