@@ -30,7 +30,7 @@ class Register {
     }
 
     /**
-     * 不管之前是否设置，直接覆盖设置
+     * recover and ignore before data
      *
      * @param $name
      * @param $value

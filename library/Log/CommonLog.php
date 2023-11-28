@@ -5,24 +5,24 @@ use Psr\Log\LogLevel;
 class CommonLog
 {
     private static $_logger = null;
-    private static $_channel = 'info';  //默认渠道为info
-    private static $_cfs = false; //存储在cfs中
-    private static $_cfsTurePath = '';
+    private static $_channel = 'info';  //channel name
+    private static $_nfs = false; //storage in nfs
+    private static $_nfsTurePath = '';
 
     private static function _getInstance()
     {
         if(self::$_logger == null){
-            if (self::$_cfs) {
-                self::$_logger = new Logger(self::$_cfsTurePath);
+            if (self::$_nfs) {
+                self::$_logger = new Logger(self::$_nfsTurePath);
             } else {
-                self::$_logger = new Logger(self::$_cfsTurePath);
+                self::$_logger = new Logger(self::$_nfsTurePath);
             }
         }
         return self::$_logger;
     }
 
     /**
-     * 设置日志类参数
+     * Set log class parameters
      * @param $level
      * @param $message
      * @param $content
@@ -31,30 +31,29 @@ class CommonLog
         self::_getInstance()->setLogLevelThreshold($level);
         self::_getInstance()->setLogChannel(self::$_channel);
         self::_getInstance()->setLogPrefix(env('APP_LOG_PREFIX','log-').self::$_channel.'-');
-        if (self::$_cfs) {
-            self::_getInstance()->setLogFilePath(self::$_cfsTurePath.self::$_channel);
+        if (self::$_nfs) {
+            self::_getInstance()->setLogFilePath(self::$_nfsTurePath.self::$_channel);
         } else {
-            self::_getInstance()->setLogFilePath(self::$_cfsTurePath.self::$_channel);
+            self::_getInstance()->setLogFilePath(self::$_nfsTurePath.self::$_channel);
         }
         self::_getInstance()->setFileHandle('a');
         self::_getInstance()->$level($message,$content);
     }
 
     /**
-     * 渠道设置
+     * Set channel
      * @param $channel
      * @return CommonLog
      */
-    public static function channel($channel, $cfs = false){
+    public static function channel($channel, $nfs = false){
         self::$_channel = $channel;
-        //self::$_cfs = $cfs;
-        self::$_cfs = true;
-        self::$_cfsTurePath = env('APP_LOG_BASE_CFS_PATH', '/data/appdata/mirror_api') . '/' . ($_SERVER['SERVER_NAME'] ?? gethostname()) . '/';
+        self::$_nfs = true;
+        self::$_nfsTurePath = env('APP_LOG_BASE_PATH', '/data/appdata/nfs') . '/' . ($_SERVER['SERVER_NAME'] ?? gethostname()) . '/';
         return new CommonLog();
     }
 
     /**
-     * info 日志
+     * info
      * @param $message
      * @param array $content
      */
@@ -62,7 +61,7 @@ class CommonLog
         self::_log(LogLevel::INFO,$message,$content);
     }
 
-    /** error 日志
+    /** error
      * @param $message
      * @param array $content
      */
@@ -71,7 +70,7 @@ class CommonLog
     }
 
     /**
-     * waring 日志
+     * waring
      * @param $message
      * @param array $content
      */
@@ -80,7 +79,7 @@ class CommonLog
     }
 
     /**
-     * debug 日志
+     * debug
      * @param $message
      * @param array $content
      */

@@ -1,4 +1,11 @@
 <?php
+/**
+ * @filesource UserService.php
+ * @brief      UserService
+ * @author     xiangchen.meng(xiangchen0814@cmcm.com)
+ * @version    1.0
+ * @date       2023-11-26
+ */
 
 namespace App\Services;
 
@@ -44,11 +51,12 @@ class UserService extends BaseService {
 
         //check user exit
         $userInfo = $userModel->findOneByKeyValue('username', $params['username']);
-        if (!empty($userInfo)){
+        if (!empty($userInfo)) {
             return -1;
         }
 
         $createRes = $userModel->createUserInfo($params);
+
         return $createRes > 0 ? $createRes : 0;
     }
 }

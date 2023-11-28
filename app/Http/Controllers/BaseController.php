@@ -86,7 +86,7 @@ abstract class BaseController extends AbstractController {
             if (!isset($params[$vpKey]) || empty($params[$vpKey])) {
                 throw new XLYException(XLYException::ERROR_MESSAGE_PARAMETER_WRONG, XLYException::ERROR_CODE_PARAMETER_WRONG);
             } else {
-                //验证是否数字
+                //verify number
                 if (!(!is_int($params[$vpKey]) ? (ctype_digit($params[$vpKey])) : true)) {
                     throw new XLYException(XLYException::ERROR_MESSAGE_PARAMETER_WRONG, XLYException::ERROR_CODE_PARAMETER_WRONG);
                 }
@@ -95,7 +95,7 @@ abstract class BaseController extends AbstractController {
     }
 
     /**
-     * 校验手机号
+     * verify phone number
      */
     protected function validPhone($phone) {
         //手机号格式不正确
@@ -107,7 +107,7 @@ abstract class BaseController extends AbstractController {
     }
 
     /**
-     * 校验邮箱
+     * verify email
      *
      * @param $email
      *
@@ -161,21 +161,4 @@ abstract class BaseController extends AbstractController {
 
         return $ret;
     }
-
-    protected function getUserInfoFormToken() {
-        $userLoginInfoArr = getLoginUserInfo();
-
-        $userService = $this->getUserService();
-        $userRawData = $userService->getUserByPhone($userLoginInfoArr['account']);
-        if (!empty($userRawData)) {
-            $userLoginInfoArr['userId']   = $userRawData['user_id'];
-            $userLoginInfoArr['userName'] = $userRawData['user_name'];
-
-            $userLoginInfoArr['mallId'] = $userRawData['mall_id'];
-        }
-
-        return $userLoginInfoArr;
-    }
-
-
 }

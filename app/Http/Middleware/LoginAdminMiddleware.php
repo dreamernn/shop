@@ -10,6 +10,8 @@ use Common\Jwt;
 
 class LoginAdminMiddleware {
     /**
+     * Check Authorization validity
+     *
      * @param Request  $request
      * @param Response $response
      *

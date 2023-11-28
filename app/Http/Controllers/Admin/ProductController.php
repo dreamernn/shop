@@ -1,4 +1,11 @@
 <?php
+/**
+ * @filesource ProductController.php
+ * @brief      ProductController
+ * @author     xiangchen.meng(xiangchen0814@cmcm.com)
+ * @version    1.0
+ * @date       2023-11-26
+ */
 
 namespace App\Http\Controllers\Admin;
 
@@ -10,7 +17,9 @@ use Xly\Register;
 
 class ProductController extends BaseController {
     /**
-     * list api
+     * get product list
+     *
+     * @return array|mixed
      */
     public function list() {
         $params = $this->getParams();
@@ -21,6 +30,9 @@ class ProductController extends BaseController {
     }
 
     /**
+     * update product
+     *
+     * @return array|mixed
      * @throws \Common\XLYException
      */
     public function edit() {

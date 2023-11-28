@@ -1,4 +1,12 @@
 <?php
+/**
+ * @filesource RedisService.php
+ * @brief      RedisService
+ * @author     xiangchen.meng(xiangchen0814@cmcm.com)
+ * @version    1.0
+ * @date       2023-11-26
+ */
+
 namespace App\Services\Redis;
 
 use \Cache\Redis;
@@ -19,7 +27,7 @@ Class RedisService extends Redis
     }
 
     /**
-     * 设置一个key.
+     * set key.
      * @param $key
      * @param $value
      * @return mixed
@@ -31,7 +39,7 @@ Class RedisService extends Redis
 
 
     /**
-     * 得到一个key.
+     * get key.
      * @param $key
      * @return mixed
      */
@@ -42,8 +50,8 @@ Class RedisService extends Redis
 
 
     /**
-     * 设置一个有过期时间的key.
-     * 默认永久.
+     * Set a key with an expiration time.
+     * default forever.
      * @param $key
      * @param $expire
      * @param $value

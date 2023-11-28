@@ -1,4 +1,11 @@
 <?php
+/**
+ * @filesource UserModel.php
+ * @brief      UserModel
+ * @author     xiangchen.meng(xiangchen0814@cmcm.com)
+ * @version    1.0
+ * @date       2023-11-26
+ */
 
 namespace App\Models;
 
@@ -6,21 +13,21 @@ use App\Models\BaseModel;
 
 class UserModel extends BaseModel {
     /**
-     * 表名
+     * tableName
      *
      * @var string
      */
     protected $_tableName = 'users';
 
     /**
-     * 主键字段名
+     * primaryKey
      *
      * @var string
      */
     protected $_primaryKey = 'user_id';
 
     /**
-     * 表中字段
+     * fields
      *
      * @var string[]
      */
@@ -52,7 +59,7 @@ class UserModel extends BaseModel {
     }
 
     /**
-     * 新增打卡记录
+     * create user
      *
      * @param $data
      *

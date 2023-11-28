@@ -1,4 +1,11 @@
 <?php
+/**
+ * @filesource CartModel.php
+ * @brief      CartModel
+ * @author     xiangchen.meng(xiangchen0814@cmcm.com)
+ * @version    1.0
+ * @date       2023-11-26
+ */
 
 namespace App\Models;
 
@@ -171,7 +178,7 @@ class CartModel extends BaseModel {
      *
      * @return array
      */
-    public function editStatus($params, $status){
+    public function editStatus($params, $status) {
         $where = '';
         foreach ($params as $key => $value) {
             if (is_array($value)) {
@@ -183,6 +190,7 @@ class CartModel extends BaseModel {
 
         $sql = "UPDATE {$this->_tableName} set `status` = {$status} 
                 WHERE 1 {$where}";
+
         return $this->secureQuery($sql, null);
     }
 }

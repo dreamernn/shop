@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Xly\Mvc\Http\Request;
-use Feishu\CustomBotV2;
 use Log\CommonLog;
 
 class LogMiddleware {

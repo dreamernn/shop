@@ -1,7 +1,8 @@
 <?php
 /**
+ * Basic of logging use
  * @filesource Logger.php
- * @brief      日志
+ * @brief      log
  * @author     xiangchen.meng(xiangchen0814@cmcm.com)
  * @version    1.0
  * @date       2022-08-09
@@ -24,7 +25,7 @@ class Logger {
     ];
 
     private static function _log($level = self::LOG_LEVEL_ERROR, $msg = '', $key = '', $file = '') {
-        ini_set('date.timezone', 'Asia/Shanghai');
+        ini_set('date.timezone', 'Pacific/Auckland');
         $logFile  = config('log_path');
         $cfgLevel = config('log_level');
         if ($cfgLevel >= $level) {

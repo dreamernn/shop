@@ -1,4 +1,11 @@
 <?php
+/**
+ * @filesource CartService.php
+ * @brief      CartService
+ * @author     xiangchen.meng(xiangchen0814@cmcm.com)
+ * @version    1.0
+ * @date       2023-11-26
+ */
 
 namespace App\Services\Admin;
 
@@ -12,7 +19,7 @@ class CartService extends BaseService {
 
     public function getInfo($params) {
         $cartModel = new CartModel();
-        $cartList = $cartModel->getInfoForAdmin($params);
+        $cartList  = $cartModel->getInfoForAdmin($params);
 
         return $cartList;
     }
@@ -26,17 +33,22 @@ class CartService extends BaseService {
      */
     public function getList($params) {
         $cartModel = new CartModel();
-        $cartList = $cartModel->getListForAdmin($params);
+        $cartList  = $cartModel->getListForAdmin($params);
 
         return $cartList;
     }
 
     /**
+     * add item to cart
+     *
      * @param $params
+     *
+     * @return false
      */
     public function add($params) {
         $cartModel = new CartModel();
-        $res = $cartModel->add($params);
+        $res       = $cartModel->add($params);
+
         return $res;
     }
 }

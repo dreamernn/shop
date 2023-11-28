@@ -1,19 +1,13 @@
 <?php
+/**
+ * @filesource BaseService.php
+ * @brief      BaseService
+ * @author     xiangchen.meng(xiangchen0814@cmcm.com)
+ * @version    1.0
+ * @date       2023-11-26
+ */
 
 namespace App\Services;
-
-use App\Services\Redis\RedisService;
-use Common\XLYException;
-use Common\Jwt;
-
 class BaseService {
-    protected $fieldArr = [];
 
-    public function setAuthorization($token_data) {
-        //生成登录态auth_token
-        $jwt        = new Jwt();
-        $auth_token = $jwt->encode($token_data);
-
-        return $auth_token;
-    }
 }

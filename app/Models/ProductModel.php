@@ -1,4 +1,11 @@
 <?php
+/**
+ * @filesource ProductModel.php
+ * @brief      ProductModel
+ * @author     xiangchen.meng(xiangchen0814@cmcm.com)
+ * @version    1.0
+ * @date       2023-11-26
+ */
 
 namespace App\Models;
 

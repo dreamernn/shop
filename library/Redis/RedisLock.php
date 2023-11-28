@@ -1,6 +1,6 @@
 <?php
 /**
- * redis分布式锁
+ * Redis distributed lock.
  */
 namespace Redis;
 

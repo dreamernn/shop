@@ -23,21 +23,19 @@ require("../bootstrap/app.php");
 $log = new \App\Http\Middleware\LogMiddleware();
 
 try {
-    $application = new \Xly\Mvc\Application(realpath(dirname(__FILE__)) . "/../");
-    $result = $application->init()->run();
+    $application = new \Xly\Mvc\Application(realpath(dirname(__FILE__))."/../");
+    $result      = $application->init()->run();
     sendResponse($result);
     $log->log($result);
 } catch (Throwable $e) {
-    $result = ['errCode' => $e->getCode(), 'message' => $e->getMessage(), 'data' => []];
+    $result          = ['errCode' => $e->getCode(), 'message' => $e->getMessage(), 'data' => []];
     $result['debug'] = ['errFile' => $e->getFile(), 'errLine' => $e->getLine()];
     sendResponse($result);
-    if ($e instanceof \Common\CANException) {
+    if ($e instanceof \Common\XLYException) {
         $log->log($result);
-    } else if ($e instanceof \Xly\Mvc\Dispatcher\Exception) {
+    } elseif ($e instanceof \Xly\Mvc\Dispatcher\Exception) {
 
-    } else if ($e instanceof \Common\WechatException) {
-
-    }else {
+    } else {
         $result['traceString'] = $e->getTraceAsString();
         $log->error($result);
     }

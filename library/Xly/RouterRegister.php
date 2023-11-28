@@ -72,9 +72,7 @@ class RouterRegister {
 
         // Match Regular Routes; If No Match, Match Path Parameter Routes
         foreach (self::$_paramsRouter as $uri => $route) {
-            // 匹配路由前缀
             if (strpos($name, $uri) !== false && !empty($route['route_params'])) {
-                // 组装路由路径参数
                 $routeParamsValue = explode('/', trim(str_replace($uri, '', $name), '/'));
                 $routeParams      = [];
                 foreach ($route['route_params'] as $key => $routeParamsKey) {

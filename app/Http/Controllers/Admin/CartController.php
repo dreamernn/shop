@@ -1,4 +1,11 @@
 <?php
+/**
+ * @filesource CartController.php
+ * @brief      CartController
+ * @author     xiangchen.meng(xiangchen0814@cmcm.com)
+ * @version    1.0
+ * @date       2023-11-26
+ */
 
 namespace App\Http\Controllers\Admin;
 
@@ -10,7 +17,9 @@ use Xly\Register;
 
 class CartController extends BaseController {
     /**
-     * list api
+     * get cart list
+     *
+     * @return array|mixed
      */
     public function list() {
         $params   = $this->getParams();
@@ -20,7 +29,10 @@ class CartController extends BaseController {
     }
 
     /**
-     * cart info
+     * get cart info
+     *
+     * @return array|mixed
+     * @throws \Common\XLYException
      */
     public function info() {
         $params = $this->getParams();

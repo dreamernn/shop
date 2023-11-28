@@ -37,10 +37,10 @@ class XLYException extends Exception
     const CART_ADD_ERROR_MESSAGE = 'That item already exists in the shopping cart';
 
     const ORDER_ADD_ERROR_CODE = 4001;
-    const ORDER_ADD_ERROR_MESSAGE = 'add order error';
+    const ORDER_ADD_ERROR_MESSAGE = 'Add order error';
 
-    const PRODUCT_EDIT_ERROR_CODE = 4001;
-    const PRODUCT_EDIT_ERROR_MESSAGE = 'update the product error';
+    const PRODUCT_EDIT_ERROR_CODE = 5001;
+    const PRODUCT_EDIT_ERROR_MESSAGE = 'Update the product error';
 
 
 

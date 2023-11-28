@@ -10,6 +10,8 @@ use Common\Jwt;
 
 class LoginCustomerMiddleware {
     /**
+     * Check Authorization validity
+     *
      * @param Request  $request
      * @param Response $response
      *
@@ -33,6 +35,7 @@ class LoginCustomerMiddleware {
         }
 
         Register::set('auth', $userInfo);  //Can be used as temporary storage
+
         return $response;
     }
 

@@ -4,7 +4,7 @@
  * @brief      Redis
  * @author     xiangchen.meng(xiangchen0814@cmcm.com)
  * @version    1.0
- * @date       2023-11-26
+ * @date       2022-11-26
  */
 
 
@@ -17,13 +17,13 @@ class Redis {
     /**
      * @var array
      *
-     * @brief Redis数据库数组
+     * @brief Redis instance
      */
     private static $_INSTANCE = [];
 
 
     /**
-     * @brief 根据key参数获取Redis所属数据库对象
+     * @brief Singleton pattern, obtain Redis object.
      *
      * @param      $keyName string
      *
@@ -45,13 +45,13 @@ class Redis {
     /**
      * @var Redis
      *
-     * @brief Redis对象
+     * @brief Redis object
      */
     private $_redis = null;
 
 
     /**
-     * @brief 构造函数
+     * @brief
      *
      * @param $config
      */
@@ -61,7 +61,7 @@ class Redis {
 
 
     /**
-     * @brief set数据
+     * @brief
      *
      * @param $key
      * @param $value
@@ -84,7 +84,7 @@ class Redis {
     }
 
     /**
-     * @brief set数据
+     * @brief
      *
      * @param $key
      * @param $value
@@ -107,7 +107,7 @@ class Redis {
     }
 
     /**
-     * @brief get数据
+     * @brief
      *
      * @param $key
      *
@@ -129,7 +129,7 @@ class Redis {
 
 
     /**
-     * @brief delete数据
+     * @brief
      *
      * @param $key
      *
@@ -150,7 +150,7 @@ class Redis {
     }
 
     /**
-     * @brief 设置hash数据
+     * @brief set hash data
      *
      * @param $key
      *
@@ -175,7 +175,7 @@ class Redis {
     }
 
     /**
-     * @brief 设置hash数据
+     * @brief set hash data multiple
      *
      * @param $key
      *
@@ -198,7 +198,7 @@ class Redis {
     }
 
     /**
-     * @brief 获取hash数据
+     * @brief get hash data
      *
      * @param $key
      *
@@ -223,7 +223,7 @@ class Redis {
     }
 
     /*
-     *@brief 获取hash中所有数据
+     *@brief get all data from hash
      *
      * @param $key
      *

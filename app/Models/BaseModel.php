@@ -12,11 +12,6 @@ class BaseModel {
     protected $_primaryKey = 'id';
 
     protected $_adapter = null;
-    const STATUS_NORMAL = 10;
-    const STATUS_DELETE = 20;
-    //业务线
-    const BUSINESS_TYPE_SHOP = 1;    //到店
-    const BUSINESS_TYPE_HOME = 2;    //到家
 
 
     public function __construct($dbName = 'default') {
@@ -103,7 +98,7 @@ class BaseModel {
     }
 
     /**
-     * 插入一笔数据, 带上创建日期
+     * insert data with created_at
      *
      * @param array $params
      * @param array $fields
@@ -114,14 +109,14 @@ class BaseModel {
     public function insertRecord($params, $fields, $isEscape = true) {
         if (empty($params['created_at'])) {
             $params['created_at'] = date('Y-m-d H:i:s');
-            $fields[]              = 'created_at';
+            $fields[]             = 'created_at';
         }
 
         return $this->rawInsertRecord($params, $fields, $isEscape);
     }
 
     /**
-     * 插入一笔数据, 原生, 不另带任何字段
+     * insert data (raw)
      *
      * @param array $params
      * @param array $fields
@@ -157,6 +152,7 @@ class BaseModel {
             return false;
         }
         $data = $this->_escape($data);
+
         return $this->_adapter->where($row, $value)->update($data);
     }
 
@@ -239,7 +235,7 @@ class BaseModel {
     }
 
     /**
-     * 取得单笔数据
+     * get single data
      *
      * @param array  $params
      * @param string $fields
@@ -272,7 +268,7 @@ class BaseModel {
 
 
     /**
-     * 删除
+     * delete
      *
      * @param array $params
      */
@@ -287,7 +283,7 @@ class BaseModel {
     }
 
     /**
-     * 取得数据表名称
+     * get table name
      *
      * @return string
      */
@@ -300,7 +296,7 @@ class BaseModel {
     }
 
     /**
-     * 解析查询的字段
+     * parse field of select
      *
      * @param array $fieldArr
      *
@@ -375,18 +371,29 @@ class BaseModel {
         return $ret;
     }
 
-    /**添加事务相关**/
-    //开始事务
+    /**
+     * begin transaction
+     *
+     * @throws \Xly\Db\Exception
+     */
     public function beginTransaction() {
         $this->_adapter->beginTransaction();
     }
 
-    //回滚事务
+    /**
+     * rollback transaction
+     *
+     * @throws \Xly\Db\Exception
+     */
     public function rollBack() {
         $this->_adapter->rollBack();
     }
 
-    //提交事务
+    /**
+     * commit transaction
+     *
+     * @throws \Xly\Db\Exception
+     */
     public function commit() {
         $this->_adapter->commit();
     }

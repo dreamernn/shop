@@ -1,4 +1,11 @@
 <?php
+/**
+ * @filesource OrderService.php
+ * @brief      OrderService
+ * @author     xiangchen.meng(xiangchen0814@cmcm.com)
+ * @version    1.0
+ * @date       2023-11-26
+ */
 
 namespace App\Services\Customer;
 
@@ -7,11 +14,13 @@ use App\Services\BaseService;
 use App\Models\OrderModel;
 use App\Models\CartModel;
 use Common\XLYException;
-use Common\Logger;
 
 class OrderService extends BaseService {
     /**
+     * add order
      * @param $params
+     *
+     * @return bool
      */
     public function add($params) {
         $cartIdArr = $cartDetail = [];

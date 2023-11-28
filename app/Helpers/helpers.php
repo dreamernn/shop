@@ -4,13 +4,14 @@ if (!function_exists('base_path')) {
     /**
      * Get the path to the base of the install.
      *
-     * @param  string $path
+     * @param string $path
+     *
      * @return string
      */
-    function base_path($path = '')
-    {
-        $basePath = dirname(__DIR__) . '/../';
-        return $basePath . $path;
+    function base_path($path = '') {
+        $basePath = dirname(__DIR__).'/../';
+
+        return $basePath.$path;
     }
 }
 
@@ -18,12 +19,12 @@ if (!function_exists('env')) {
     /**
      * Gets the value of an environment variable. Supports boolean, empty and null.
      *
-     * @param  string $key
-     * @param  mixed $default
+     * @param string $key
+     * @param mixed  $default
+     *
      * @return mixed
      */
-    function env($key, $default = null)
-    {
+    function env($key, $default = null) {
         $value = getenv($key);
 
         if ($value === false) {
@@ -56,16 +57,16 @@ if (!function_exists('curlRequest')) {
     /**
      * send curl request
      *
-     * @param $url
+     * @param        $url
      * @param string $method [get or post]
-     * @param array $data
-     * @param array $jsonFormat
-     * @param array $header header扩展
+     * @param array  $data
+     * @param array  $jsonFormat
+     * @param array  $header header扩展
+     *
      * @return array|mixed
      */
-    function curlRequest($url, $data = null, $method = 'post', $jsonFormat = true, $header = [])
-    {
-        //请求数据
+    function curlRequest($url, $data = null, $method = 'post', $jsonFormat = true, $header = []) {
+        //request
         $requestCounts = 0;
         do {
             $ch = curl_init();
@@ -81,19 +82,21 @@ if (!function_exists('curlRequest')) {
             curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
             curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-            $result = curl_exec($ch);
+            $result  = curl_exec($ch);
             $error[] = curl_error($ch);
             curl_close($ch);
-            //请求失败,重试三次
+            //failure
         } while (($requestCounts++) < 3 && $result === false);
 
         if (false !== $result) {
-            if(!$jsonFormat) {
+            if (!$jsonFormat) {
                 return $result;
             }
             $responseData = json_decode($result, true);
+
             return $responseData;
         }
+
         return [];
     }
 }
@@ -102,19 +105,20 @@ if (!function_exists('responseSuccess')) {
     /**
      * Gets the value of an environment variable. Supports boolean, empty and null.
      *
-     * @param  string $msg
-     * @param  mixed $data
-     * @param  int $code
+     * @param string $msg
+     * @param mixed  $data
+     * @param int    $code
+     *
      * @return mixed
      */
-    function responseSuccess($msg, $data = [], $code = 200)
-    {
+    function responseSuccess($msg, $data = [], $code = 200) {
         $msg = empty($msg) ? 'success' : $msg;
         $ret = [
             'errCode' => $code,
             'message' => $msg,
-            'data' => $data
+            'data'    => $data,
         ];
+
         return $ret;
     }
 }
@@ -123,18 +127,19 @@ if (!function_exists('responseFail')) {
     /**
      * Gets the value of an environment variable. Supports boolean, empty and null.
      *
-     * @param  string $msg
-     * @param  int $code
+     * @param string $msg
+     * @param int    $code
+     *
      * @return mixed
      */
-    function responseFail($msg, $code = 410, $data = [])
-    {
+    function responseFail($msg, $code = 410, $data = []) {
         $msg = empty($msg) ? 'fail' : $msg;
         $ret = [
             'errCode' => $code,
             'message' => $msg,
-            'data' => $data
+            'data'    => $data,
         ];
+
         return $ret;
     }
 }
@@ -142,16 +147,18 @@ if (!function_exists('responseFail')) {
 if (!function_exists('randomCode')) {
     /**
      * generate random numbers
+     *
      * @param integer $len number lenght
+     *
      * @return string
      */
-    function randomCode($length)
-    {
-        $code = '';
+    function randomCode($length) {
+        $code    = '';
         $pattern = '1234567890';
         for ($i = 0; $i < $length; ++$i) {
             $code .= $pattern[mt_rand(0, 9)];    // 生成php随机数
         }
+
         return $code;
     }
 }
@@ -162,17 +169,16 @@ if (!function_exists('randWord')) {
      * A random string of numbers and letters
      *
      * @param int $n
+     *
      * @return bool|string
      */
-    function randWord($n = 8)
-    {
+    function randWord($n = 8) {
         return $n < 1 ? '' : substr(str_shuffle(str_repeat('abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ', ($n + 3) / 4)), 0, $n);
     }
 }
 
 if (!function_exists('sendResponse')) {
-    function sendResponse($result)
-    {
+    function sendResponse($result) {
         if (is_null($result)) {
             return;
         }
@@ -187,12 +193,11 @@ if (!function_exists('sendResponse')) {
 
 if (!function_exists('isOnline')) {
     /**
-     * 是否为线上环境
+     * if online env
      *
      * @return bool
      */
-    function isOnline()
-    {
+    function isOnline() {
         return getenv('APP_ENV') == 'online' || getenv('APP_ENV') == 'online_stg' || getenv('APP_ENV') == 'stg' ? true : false;
     }
 }
@@ -203,18 +208,19 @@ if (!function_exists('config')) {
      *
      * If an array is passed as the key, we will assume you want to set an array of values.
      *
-     * @param  array|string $key
-     * @param  mixed $default
+     * @param array|string $key
+     * @param mixed        $default
+     *
      * @return mixed
      */
-    function config($key = null, $default = null)
-    {
+    function config($key = null, $default = null) {
         if (is_null($key)) {
             return \Xly\Register::get('config');
         }
         if (is_array($key)) {
             return \Xly\Register::set('config', $key);
         }
+
         return \Xly\Register::get('config')[$key];
     }
 }

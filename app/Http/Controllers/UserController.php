@@ -1,4 +1,11 @@
 <?php
+/**
+ * @filesource UserController.php
+ * @brief      UserController
+ * @author     xiangchen.meng(xiangchen0814@cmcm.com)
+ * @version    1.0
+ * @date       2023-11-26
+ */
 
 namespace App\Http\Controllers;
 
@@ -9,7 +16,7 @@ use Common\XLYException;
 class UserController extends BaseController {
 
     /**
-     * default api
+     * default
      *
      * @return array|mixed
      */

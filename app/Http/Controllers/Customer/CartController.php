@@ -1,4 +1,11 @@
 <?php
+/**
+ * @filesource CartController.php
+ * @brief      CartController
+ * @author     xiangchen.meng(xiangchen0814@cmcm.com)
+ * @version    1.0
+ * @date       2023-11-26
+ */
 
 namespace App\Http\Controllers\Customer;
 
@@ -10,7 +17,9 @@ use Xly\Register;
 
 class CartController extends BaseController {
     /**
-     * list api
+     * get cart list
+     *
+     * @return array|mixed
      */
     public function list() {
         $params   = $this->getParams();
@@ -26,6 +35,8 @@ class CartController extends BaseController {
     }
 
     /**
+     * get total and totalPrice from data of cart
+     *
      * @return array|mixed
      */
     public function getTotalAndPrice() {
@@ -40,7 +51,10 @@ class CartController extends BaseController {
     }
 
     /**
-     * add for cart
+     * add data to cart
+     *
+     * @return array|mixed
+     * @throws \Common\XLYException
      */
     public function add() {
         $params = $this->getParams();

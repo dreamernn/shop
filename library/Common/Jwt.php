@@ -2,7 +2,7 @@
 /**
  * @filesource Jwt.php
  * @brief      JWT token
- * @author     xiangchen.meng(xiangchen0814@cmcm.com)
+ * @author
  * @version    1.0
  * @date       2023-11-26
  */

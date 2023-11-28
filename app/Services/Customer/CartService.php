@@ -1,4 +1,11 @@
 <?php
+/**
+ * @filesource CartService.php
+ * @brief      CartService
+ * @author     xiangchen.meng(xiangchen0814@cmcm.com)
+ * @version    1.0
+ * @date       2023-11-26
+ */
 
 namespace App\Services\Customer;
 
@@ -6,17 +13,25 @@ use App\Models\CartModel;
 
 use App\Services\BaseService;
 use Common\XLYException;
-use Common\Logger;
+use Log\CommonLog;
 
 class CartService extends BaseService {
-
-    public function getList($params, $ifEffective = true, $isAll = false){
+    /**
+     * get cart list service
+     *
+     * @param       $params
+     * @param bool  $ifEffective
+     * @param false $isAll
+     *
+     * @return array|mixed
+     */
+    public function getList($params, $ifEffective = true, $isAll = false) {
         $cartModel = new CartModel();
         if (false === $isAll) {
             $params['is_del'] = 0;
         }
 
-        if ($ifEffective == true){
+        if ($ifEffective == true) {
             $params['status'] = 0;
         }
 
@@ -24,7 +39,7 @@ class CartService extends BaseService {
     }
 
     /**
-     * get cart list
+     * get cart list for customer
      *
      * @param $params
      *
@@ -37,11 +52,18 @@ class CartService extends BaseService {
         }
 
         $params['status'] = 0;
-        $cartList = $cartModel->getListForCustomer($params);
+        $cartList         = $cartModel->getListForCustomer($params);
 
         return $cartList;
     }
 
+    /**
+     * get total and totalPrice
+     *
+     * @param $params
+     *
+     * @return array
+     */
     public function getTotalAndPrice($params) {
         $cartModel        = new CartModel();
         $data             = ['total' => 0, 'total_price' => 0.00];
@@ -55,11 +77,16 @@ class CartService extends BaseService {
             }
         }
         $data['total_price'] = number_format($data['total_price'], 2);
+
         return $data;
     }
 
     /**
+     * add item to cart
+     *
      * @param $params
+     *
+     * @return bool
      */
     public function add($params) {
         $cartModel = new CartModel();
