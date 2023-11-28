@@ -25,13 +25,14 @@ class IndexController extends BaseController {
                 $redirectUrl = '';
                 $userRole    = (int)$userInfo['role'];
                 if ($userRole == 0) {
-                    $redirectUrl = config('customer_url') . '/product-list.html';
+                    $redirectUrl = config('customer_url') . 'product-list.html';
                 }
 
                 if ($userRole == 1) {
-                    $redirectUrl = config('admin_url') . '/product-list.html';
+                    $redirectUrl = config('admin_url') . 'product-list.html';
                 }
             }
+
             if ($redirectUrl != '') {
                 //redirect to page
                 return responseFail(XLYException::USER_NEED_REDIRECT_ERROR_MESSAGE,XLYException::USER_NEED_REDIRECT_ERROR_CODE, ['redirect_url' => $redirectUrl]);

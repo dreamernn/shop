@@ -24,14 +24,14 @@ abstract class AbstractController {
     }
 
     /**
-    * callback function before action is executed
-    */
+     * callback function before action is executed
+     */
     public function init() {
     }
 
     /**
-    * callback function after action has been executed
-    */
+     * callback function after action has been executed
+     */
     public function shutdown() {
     }
 
@@ -98,11 +98,11 @@ abstract class AbstractController {
             $result = $this->$method();
             $response->setReturn($result);
         } catch (Exception $e) {
-            $response->setException($e);   
+            $response->setException($e);
         }
 
         $this->shutdown();
- 
+
         return $response;
     }
 
@@ -141,6 +141,6 @@ abstract class AbstractController {
         echo json_encode($result);
         fastcgi_finish_request();
     }
-    
+
 
 }//END OF CLASS

@@ -15,10 +15,13 @@ class OrderService extends BaseService {
      */
     public function add($params) {
         $cartIdArr = $cartDetail = [];
-        foreach ($params['cart_list'] as $val) {
-            $cartIdArr[]  = $val['cart_id'];
-            $cartDetail[] = ['cart_id' => $val['cart_id'], 'quantity' => $val['quantity'], 'price' => $val['price']];
+        if (isset($params['cart_list']) && is_array($params['cart_list'])) {
+            foreach ($params['cart_list'] as $val) {
+                $cartIdArr[]  = $val['cart_id'];
+                $cartDetail[] = ['cart_id' => $val['cart_id'], 'quantity' => $val['quantity'], 'price' => $val['price']];
+            }
         }
+
         unset($params['cart_list']);
         $params['cart_detail'] = json_encode($cartDetail, JSON_UNESCAPED_UNICODE);
         $orderModel            = new OrderModel();
@@ -30,8 +33,11 @@ class OrderService extends BaseService {
                 throw new XLYException('edit fail');
             }
 
-            $cartModel = new cartModel();
-            $cartModel->editStatus(['cart_id' => $cartIdArr], 1);
+            if (!empty($cartIdArr)) {
+                $cartModel = new cartModel();
+                $cartModel->editStatus(['cart_id' => $cartIdArr], 1);
+            }
+
             $orderModel->commit();
         } catch (XLYException $e) {
 

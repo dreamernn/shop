@@ -15,8 +15,7 @@ $loader->registerNamespaces(array(
 ));
 $loader->init();
 
-$app_env = getenv('APP_ENV') ?: getopt('',["env::"])['env'] ?: 'alpha';
-
+@$app_env = getenv('APP_ENV') ?: getopt('',["env::"])['env'] ?: 'alpha';
 $env = '.' . $app_env . '.env';
 
 try{

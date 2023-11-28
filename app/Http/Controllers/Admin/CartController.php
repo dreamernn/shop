@@ -20,7 +20,7 @@ class CartController extends BaseController {
     }
 
     /**
-     * add for cart
+     * cart info
      */
     public function info() {
         $params = $this->getParams();

@@ -2,7 +2,7 @@
 $router = new \Xly\RouterRegister();
 /*$router->get('/', 'IndexController@index');*/
 
-$router->group(['prefix' => '', 'middleware' => ['']], function () use ($router) {
+$router->group(['prefix' => ''], function () use ($router) {
     $router->post('/', 'IndexController@index');
 });
 

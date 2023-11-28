@@ -1,0 +1,2 @@
+[2023-11-28 11:43:17] [ERROR] [2023112722431746275mirror_api65651b85023f2] [_runMiddlewares] pid: 903, file: Dispatcher.php, line: 220, "The middleware source:\/Volumes\/Work\/WorkSpace\/www\/netValue\/public\/..\/app\/Http\/Middleware\/Middleware.php doesn't exist"
+[2023-11-28 11:43:17] [ERROR] [2023112722431746275mirror_api65651b85023f2] [_runMiddlewares] pid: 903, file: Dispatcher.php, line: 220, "The middleware source:\/Volumes\/Work\/WorkSpace\/www\/netValue\/public\/..\/app\/Http\/Middleware\/Middleware.php doesn't exist"

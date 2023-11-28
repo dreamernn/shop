@@ -105,6 +105,15 @@ class Request {
     }
 
     /**
+     * set header
+     * @param $key
+     * @param $val
+     *
+     */
+    public function setHeader($key, $val){
+        $this->_headers[$key] = $val;
+    }
+    /**
     * Get all headers
     *
     * @return array
@@ -164,6 +173,14 @@ class Request {
         }
 
         return $default;
+    }
+
+    /**
+     * Set the raw post body
+     *
+     */
+    public function setRawBody($rawBody){
+        $this->_rawBody = $rawBody;
     }
 
     /**

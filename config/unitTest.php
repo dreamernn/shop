@@ -1,0 +1,5 @@
+<?php
+return [
+    'user_authorization'  => '',
+    'admin_authorization' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsb2NhbC5zaG9wX2FwaS5jb20iLCJhdWQiOiJzaG9wIiwianRpIjoic2hvcDBqMWYyYTNjIiwiaWF0IjoxNzAwODg0NDE3LCJuYmYiOjE3MDA4ODQ0MTcsImV4cCI6MTcwMzQ3NjQxNywicmFuZE51bSI6ODkyMDk4NiwidXNlcl9pZCI6IjIiLCJ1c2VybmFtZSI6ImFkbWluMSIsInBhc3N3b3JkIjoiZTEwYWRjMzk0OWJhNTlhYmJlNTZlMDU3ZjIwZjg4M2UiLCJyb2xlIjoiMSJ9.r0pvrfMHTH9n8qdycl2W3J9dRy_YNXhHL4YwmqLuAqQ',
+];

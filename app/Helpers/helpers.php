@@ -141,8 +141,8 @@ if (!function_exists('responseFail')) {
 
 if (!function_exists('randomCode')) {
     /**
-     * 产生随机数串
-     * @param integer $len 随机数字长度
+     * generate random numbers
+     * @param integer $len number lenght
      * @return string
      */
     function randomCode($length)
@@ -156,26 +156,10 @@ if (!function_exists('randomCode')) {
     }
 }
 
-if (!function_exists('randNumber')) {
-    /**
-     * 随机生成4位数组
-     *
-     * @param int $n
-     * @return bool|string
-     */
-    function randNumber($n = 4)
-    {
-        if ($n < 9 && $n >= 2) {
-            return str_pad(mt_rand(1, pow(10, $n)), $n, '0', STR_PAD_LEFT);
-        }
-        $str = str_repeat('1234567890', $n / 2);
-        return substr(str_shuffle($str), 0, $n);
-    }
-}
 
 if (!function_exists('randWord')) {
     /**
-     * 数字和字母组合的随机字符串
+     * A random string of numbers and letters
      *
      * @param int $n
      * @return bool|string
