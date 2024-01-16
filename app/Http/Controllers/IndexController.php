@@ -21,31 +21,28 @@ class IndexController extends BaseController {
      */
     public function index() {
         $authorization = $this->getHeader('Authorization');
+        $redirectUrl   = config('api_domain').'/html/login.html';
         if ($authorization) {
-            $jwt      = new Jwt();
-            if(!$jwt->isExpire($authorization)){
-                return responseFail(XLYException::USER_NEED_LOGIN_ERROR_MESSAGE,XLYException::USER_NEED_LOGIN_ERROR_CODE);
+            $jwt = new Jwt();
+            if (!$jwt->isExpire($authorization)) {
+                return responseFail(XLYException::USER_NEED_LOGIN_ERROR_MESSAGE, XLYException::USER_NEED_LOGIN_ERROR_CODE, ['redirect_url' => $redirectUrl]);
             }
 
             $userInfo = $jwt->decodeToken($authorization);
             if (isset($userInfo['role'])) {
-                $redirectUrl = '';
-                $userRole    = (int)$userInfo['role'];
+                $userRole = (int)$userInfo['role'];
                 if ($userRole == 0) {
-                    $redirectUrl = config('customer_url') . 'product-list.html';
+                    $redirectUrl = config('customer_url').'product-list.html';
                 }
 
                 if ($userRole == 1) {
-                    $redirectUrl = config('admin_url') . 'product-list.html';
+                    $redirectUrl = config('admin_url').'product-list.html';
                 }
-            }
 
-            if ($redirectUrl != '') {
-                //redirect to page
-                return responseFail(XLYException::USER_NEED_REDIRECT_ERROR_MESSAGE,XLYException::USER_NEED_REDIRECT_ERROR_CODE, ['redirect_url' => $redirectUrl]);
+                return responseFail(XLYException::USER_NEED_REDIRECT_ERROR_MESSAGE, XLYException::USER_NEED_REDIRECT_ERROR_CODE, ['redirect_url' => $redirectUrl]);
             }
         }
 
-        return responseFail(XLYException::USER_NEED_LOGIN_ERROR_MESSAGE,XLYException::USER_NEED_LOGIN_ERROR_CODE);
+        return responseFail(XLYException::USER_NEED_LOGIN_ERROR_MESSAGE, XLYException::USER_NEED_LOGIN_ERROR_CODE, ['redirect_url' => $redirectUrl]);
     }
 }
