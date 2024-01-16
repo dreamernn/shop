@@ -127,10 +127,9 @@ The Nginx configuration file is located at `/docs/Nginx_conf/local.shop_api.com.
 
 ## Deployment Steps
 ### Steps
-1. Clone project code: `git clone [git@github.com:dreamernn/shop.git]`
-2. Executive command `docker build -t shop:v1.0 .`
-3. Executive command `docker run -itd -p8001:8001 shop:v1.0`
-4. Access the website via the browser (can be defined based on the Nginx configuration): http://localhost:8001/html
+1. Executive command `docker build -t shop:v1.0 .`
+2. Executive command `docker run -itd -p8001:8001 shop:v1.0`
+3. Access the website via the browser: http://localhost:8001/html
 
 ---
 
