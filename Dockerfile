@@ -35,10 +35,14 @@ WORKDIR /var/www
 RUN chown -R www-data:www-data .
 
 # 复制PHP应用到工作目录
-COPY . ./shop
+COPY . ./shop/
+
+RUN ls -al
 
 # 修改项目目录下log文件夹的权限
-RUN chmod -R 755 ./shop/logs && chmod -R 755 ./shop/app/shell
+RUN chmod -R 777 ./shop/logs/ && chmod -R 755 ./shop/app/shell
+
+RUN cd ./shop && composer update
 
 # 复制Nginx配置文件到配置文件目录
 COPY ./docs/Nginx_conf/local.shop_api.com.conf /etc/nginx/conf.d/local.shop_api.com.conf
