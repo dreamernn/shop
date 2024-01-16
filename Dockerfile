@@ -35,7 +35,7 @@ WORKDIR /var/www
 # Set file permissions
 RUN chown -R www-data:www-data .
 
-# Copy Project to the working directory
+# Clone Project to the working directory
 #COPY . ./shop/
 RUN git clone https://github.com/dreamernn/shop.git ./shop/
 RUN mkdir -m 777 -p ./shop/logs/ && chmod -R 755 ./shop/app/shell/
