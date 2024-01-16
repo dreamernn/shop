@@ -133,7 +133,7 @@ The Nginx configuration file is located at `/docs/Nginx_conf/local.shop_api.com.
 4. Modify the framework's logs directory permissions to 755 `chmod -R 755 ./log`.
 5. Perform a `composer update`.
 6. Customize the configuration files in the framework's config folder and environment variables under environment based on your needs.
-7. Access the website via the browser (can be defined based on the Nginx configuration): http://local.shop_api.com/html
+7. Access the website via the browser (can be defined based on the Nginx configuration): http://localhost:8001/html
 
 ---
 

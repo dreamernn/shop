@@ -3,7 +3,7 @@
 return [
     'log_path'     => env('APP_LOG_BASE_PATH', ''),
     'log_level'    => env('APP_LOG_LEVEL', '4'),
-    'api_domain'   => env('API_DOMAIN', 'local.shop_api.com'),
+    'api_domain'   => env('API_DOMAIN', 'localhost:8001'),
     'customer_url' => env('HTML_DOMAIN').'/html/customer/',
     'admin_url'    => env('HTML_DOMAIN').'/html/admin/',
     'database'     => [
