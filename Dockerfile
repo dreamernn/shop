@@ -11,7 +11,8 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     procps \
-    vim
+    vim \
+    git
 
 # Install Redis extension
 RUN pecl install redis \
@@ -35,10 +36,9 @@ WORKDIR /var/www
 RUN chown -R www-data:www-data .
 
 # Copy Project to the working directory
-COPY . ./shop/
-
-RUN chmod -R 777 ./shop/logs/ && chmod -R 755 ./shop/app/shell
-
+#COPY . ./shop/
+RUN git clone https://github.com/dreamernn/shop.git ./shop/
+RUN mkdir -m 777 -p ./shop/logs/ && chmod -R 755 ./shop/app/shell/
 RUN cd ./shop && composer update
 
 COPY ./docs/Nginx_conf/local.shop_api.com.conf /etc/nginx/conf.d/local.shop_api.com.conf
